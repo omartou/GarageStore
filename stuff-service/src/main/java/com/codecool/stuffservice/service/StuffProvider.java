@@ -43,10 +43,8 @@ public class StuffProvider {
                 .price(stuffWithDetails.getStuff().getPrice())
                 .image(stuffWithDetails.getStuff().getImage())
                 .build();
-//        stuffRepository.save(stuff);
-//        Long id = stuff.getId();
-        Stuff stuff2 = stuffRepository.save(stuff);
-        stuff2.getId();
 
+        Stuff stuffFromDB = stuffRepository.save(stuff);
+        stuffDetailsServiceCaller.addNewStuffDetail(stuffFromDB.getId(), stuffWithDetails.getStuffDetailsResult());
     }
 }
