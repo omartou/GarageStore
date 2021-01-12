@@ -15,4 +15,8 @@ public class StuffDetailsProvider {
     public StuffDetails getStuffDetailsByStuffId(Long stuffId) {
         return stuffDetailsRepository.getStuffDetailsByStuffId(stuffId);
     }
+
+    public void updateStuffDetailsByStuffId(Long stuffId, StuffDetails stuffDetails) {
+        stuffDetailsRepository.save(stuffDetails);
+    }
 }

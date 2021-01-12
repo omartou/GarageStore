@@ -29,11 +29,17 @@ public class StuffProvider {
         Optional<Stuff> stuff = stuffRepository.findById(stuffId);
 
         if (stuff.isPresent()) {
-            StuffDetailsResult stuffDetailsResult = stuffDetailsServiceCaller.getStuffDetailsResultByStuffId(stuffId);
+            StuffDetailsResult stuffDetailsResult = stuffDetailsServiceCaller
+                    .getStuffDetailsResultByStuffId(stuffId);
             stuffWithDetails.setStuff(stuff.get());
             stuffWithDetails.setStuffDetailsResult(stuffDetailsResult);
         }
 
         return stuffWithDetails;
+    }
+
+    public void updateStuffById(Long stuffId, StuffWithDetails stuffWithDetails) {
+        stuffRepository.save(stuffWithDetails.getStuff());
+        //stuffDetailsServiceCaller.updateStuffDetailsByStuffId(stuffId, stuffWithDetails.getStuffDetailsResult());
     }
 }
