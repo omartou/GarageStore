@@ -16,6 +16,13 @@ public class StuffDetailsProvider {
         return stuffDetailsRepository.getStuffDetailsByStuffId(stuffId);
     }
 
+    public void updateStuffDetailsByStuffId(Long stuffId, StuffDetails stuffDetails) {
+        StuffDetails oldStuffDetails = stuffDetailsRepository.getStuffDetailsByStuffId(stuffId);
+        oldStuffDetails.setDescription(stuffDetails.getDescription());
+        oldStuffDetails.setPurchaseYear(stuffDetails.getPurchaseYear());
+        oldStuffDetails.setYoutubeVideoUrl(stuffDetails.getYoutubeVideoUrl());
+        stuffDetailsRepository.save(oldStuffDetails);
+    }
     public void addNewStuffDetails(Long stuffId, StuffDetails stuffDetails) {
         StuffDetails newStuffDetails = StuffDetails.builder()
                 .description(stuffDetails.getDescription())
@@ -24,7 +31,5 @@ public class StuffDetailsProvider {
                 .youtubeVideoUrl(stuffDetails.getYoutubeVideoUrl())
                 .build();
         stuffDetailsRepository.save(newStuffDetails);
-
-
     }
 }

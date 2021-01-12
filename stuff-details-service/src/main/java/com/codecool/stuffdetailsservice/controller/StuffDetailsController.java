@@ -20,6 +20,13 @@ public class StuffDetailsController {
         return stuffDetailsProvider.getStuffDetailsByStuffId(stuffId);
     }
 
+    @PutMapping("/{stuff_id}/update")
+    public void updateStuffDetailsByStuffId(@PathVariable("stuff_id") Long stuffId,
+            @RequestBody StuffDetails stuffDetails) {
+        stuffDetailsProvider.updateStuffDetailsByStuffId(stuffId, stuffDetails);
+    }
+
+
     @PostMapping("/add/{stuff_id}")
     public ResponseEntity addNewStuffDetails(@PathVariable("stuff_id") Long stuffId,
                                              @RequestBody StuffDetails stuffDetails) {
@@ -32,5 +39,4 @@ public class StuffDetailsController {
         stuffDetailsProvider.addNewStuffDetails(stuffId, stuffDetails);
         return ResponseEntity.ok("Details successfully created");
     }
-
 }

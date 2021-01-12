@@ -29,7 +29,8 @@ public class StuffProvider {
         Optional<Stuff> stuff = stuffRepository.findById(stuffId);
 
         if (stuff.isPresent()) {
-            StuffDetailsResult stuffDetailsResult = stuffDetailsServiceCaller.getStuffDetailsResultByStuffId(stuffId);
+            StuffDetailsResult stuffDetailsResult = stuffDetailsServiceCaller
+                    .getStuffDetailsResultByStuffId(stuffId);
             stuffWithDetails.setStuff(stuff.get());
             stuffWithDetails.setStuffDetailsResult(stuffDetailsResult);
         }
@@ -37,6 +38,13 @@ public class StuffProvider {
         return stuffWithDetails;
     }
 
+    public void updateStuffById(Long stuffId, StuffWithDetails stuffWithDetails) {
+        Stuff updatedStuff = stuffWithDetails.getStuff();
+        updatedStuff.setId(stuffId);
+        stuffRepository.save(updatedStuff);
+        stuffDetailsServiceCaller.updateStuffDetailsByStuffId(stuffId, stuffWithDetails.getStuffDetailsResult());
+    }
+  
     public void addNewStuffWithDetails(StuffWithDetails stuffWithDetails) {
         Stuff stuff = Stuff.builder()
                 .name(stuffWithDetails.getStuff().getName())
