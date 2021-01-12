@@ -32,12 +32,10 @@ public class StuffController {
         return stuffProvider.getStuffWithDetailsByStuffId(stuffId);
     }
 
-    @PostMapping("/stuff/{stuff_id}/update")
+    @PutMapping("/{stuff_id}/update")
     public void updateStuffById(@PathVariable("stuff_id") Long stuffId,
             @RequestBody StuffWithDetails stuffWithDetails) {
-
         stuffProvider.updateStuffById(stuffId, stuffWithDetails);
-
     }
 
 }

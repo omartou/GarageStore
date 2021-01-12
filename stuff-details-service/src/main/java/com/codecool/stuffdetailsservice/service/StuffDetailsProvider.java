@@ -17,6 +17,10 @@ public class StuffDetailsProvider {
     }
 
     public void updateStuffDetailsByStuffId(Long stuffId, StuffDetails stuffDetails) {
-        stuffDetailsRepository.save(stuffDetails);
+        StuffDetails oldStuffDetails = stuffDetailsRepository.getStuffDetailsByStuffId(stuffId);
+        oldStuffDetails.setDescription(stuffDetails.getDescription());
+        oldStuffDetails.setPurchaseYear(stuffDetails.getPurchaseYear());
+        oldStuffDetails.setYoutubeVideoUrl(stuffDetails.getYoutubeVideoUrl());
+        stuffDetailsRepository.save(oldStuffDetails);
     }
 }

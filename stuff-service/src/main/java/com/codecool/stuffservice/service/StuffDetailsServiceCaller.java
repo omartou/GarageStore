@@ -22,7 +22,7 @@ public class StuffDetailsServiceCaller {
     }
 
     public void updateStuffDetailsByStuffId(Long stuffId, StuffDetailsResult stuffDetailsResult) {
-        restTemplate.postForEntity(baseURL + "/detail/" + stuffId + "/update", stuffDetailsResult,
+        restTemplate.put(baseURL + "/detail/" + stuffId + "/update", stuffDetailsResult,
                 String.class);
     }
 }

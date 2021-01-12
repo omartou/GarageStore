@@ -19,7 +19,7 @@ public class StuffDetailsController {
         return stuffDetailsProvider.getStuffDetailsByStuffId(stuffId);
     }
 
-    @PostMapping("/{stuff_id}/update")
+    @PutMapping("/{stuff_id}/update")
     public void updateStuffDetailsByStuffId(@PathVariable("stuff_id") Long stuffId,
             @RequestBody StuffDetails stuffDetails) {
         stuffDetailsProvider.updateStuffDetailsByStuffId(stuffId, stuffDetails);

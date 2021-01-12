@@ -39,7 +39,9 @@ public class StuffProvider {
     }
 
     public void updateStuffById(Long stuffId, StuffWithDetails stuffWithDetails) {
-        stuffRepository.save(stuffWithDetails.getStuff());
-        //stuffDetailsServiceCaller.updateStuffDetailsByStuffId(stuffId, stuffWithDetails.getStuffDetailsResult());
+        Stuff updatedStuff = stuffWithDetails.getStuff();
+        updatedStuff.setId(stuffId);
+        stuffRepository.save(updatedStuff);
+        stuffDetailsServiceCaller.updateStuffDetailsByStuffId(stuffId, stuffWithDetails.getStuffDetailsResult());
     }
 }
