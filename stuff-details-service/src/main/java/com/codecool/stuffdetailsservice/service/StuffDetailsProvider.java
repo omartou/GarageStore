@@ -23,4 +23,13 @@ public class StuffDetailsProvider {
         oldStuffDetails.setYoutubeVideoUrl(stuffDetails.getYoutubeVideoUrl());
         stuffDetailsRepository.save(oldStuffDetails);
     }
+    public void addNewStuffDetails(Long stuffId, StuffDetails stuffDetails) {
+        StuffDetails newStuffDetails = StuffDetails.builder()
+                .description(stuffDetails.getDescription())
+                .purchaseYear(stuffDetails.getPurchaseYear())
+                .stuffId(stuffId)
+                .youtubeVideoUrl(stuffDetails.getYoutubeVideoUrl())
+                .build();
+        stuffDetailsRepository.save(newStuffDetails);
+    }
 }

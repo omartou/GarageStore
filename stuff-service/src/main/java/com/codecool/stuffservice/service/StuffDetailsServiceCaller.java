@@ -25,4 +25,8 @@ public class StuffDetailsServiceCaller {
         restTemplate.put(baseURL + "/detail/" + stuffId + "/update", stuffDetailsResult,
                 String.class);
     }
+      
+    public void addNewStuffDetail(Long stuffId, StuffDetailsResult stuffDetailsResult) {
+        restTemplate.postForEntity(baseURL + "/detail/add/" + stuffId, stuffDetailsResult, String.class);
+    }
 }
