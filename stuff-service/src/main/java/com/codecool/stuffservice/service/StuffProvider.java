@@ -44,7 +44,7 @@ public class StuffProvider {
         stuffRepository.save(updatedStuff);
         stuffDetailsServiceCaller.updateStuffDetailsByStuffId(stuffId, stuffWithDetails.getStuffDetailsResult());
     }
-  
+
     public void addNewStuffWithDetails(StuffWithDetails stuffWithDetails) {
         Stuff stuff = Stuff.builder()
                 .name(stuffWithDetails.getStuff().getName())
@@ -54,5 +54,15 @@ public class StuffProvider {
 
         Stuff stuffFromDB = stuffRepository.save(stuff);
         stuffDetailsServiceCaller.addNewStuffDetail(stuffFromDB.getId(), stuffWithDetails.getStuffDetailsResult());
+    }
+
+    public void setSoldStatusByStuffId(Long stuffId) {
+        Optional<Stuff> optionalStuff = stuffRepository.findById(stuffId);
+        Stuff stuff;
+        if (optionalStuff.isPresent()) {
+            stuff = optionalStuff.get();
+            stuff.setSoldStatus(true);
+            stuffRepository.save(stuff);
+        }
     }
 }

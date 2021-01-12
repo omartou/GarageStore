@@ -27,6 +27,11 @@ public class StuffController {
         return stuffProvider.getStuffWithDetailsByStuffId(stuffId);
     }
 
+    @PostMapping("/{stuff_id}")
+    public void setSoldStatusByStuffId(@PathVariable("stuff_id") Long stuffId) {
+        stuffProvider.setSoldStatusByStuffId(stuffId);
+    }
+
     // maybe we can ignore this method, because the method above is doing the same ?!?!
     @GetMapping("/{stuff_id}/update")
     public StuffWithDetails getStuffForUpdateById(@PathVariable("stuff_id") Long stuffId) {
@@ -35,13 +40,13 @@ public class StuffController {
 
     @PutMapping("/{stuff_id}/update")
     public void updateStuffById(@PathVariable("stuff_id") Long stuffId,
-            @RequestBody StuffWithDetails stuffWithDetails) {
+                                @RequestBody StuffWithDetails stuffWithDetails) {
         stuffProvider.updateStuffById(stuffId, stuffWithDetails);
     }
 
     @PostMapping("/add")
     public ResponseEntity addNewStuffWithDetails(@RequestBody StuffWithDetails stuffWithDetails) {
-        if(stuffWithDetails.getStuff().getName() == null) {
+        if (stuffWithDetails.getStuff().getName() == null) {
             return ResponseEntity.badRequest().body("Stuff' name should be provided");
         }
         if (stuffWithDetails.getStuff().getPrice() == 0) {
