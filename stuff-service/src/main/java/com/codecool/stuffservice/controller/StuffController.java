@@ -6,6 +6,7 @@ import com.codecool.stuffservice.model.StuffWithDetails;
 import com.codecool.stuffservice.service.StuffDetailsServiceCaller;
 import com.codecool.stuffservice.service.StuffProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,5 +28,18 @@ public class StuffController {
     @GetMapping("/{stuff_id}")
     public StuffWithDetails getStuffWithDetailsByStuffId(@PathVariable("stuff_id") Long stuffId) {
         return stuffProvider.getStuffWithDetailsByStuffId(stuffId);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity addNewStuffWithDetails(@RequestBody StuffWithDetails stuffWithDetails) {
+        if(stuffWithDetails.getStuff().getName() == null) {
+            return ResponseEntity.badRequest().body("Stuff' name should be provided");
+        }
+        if (stuffWithDetails.getStuff().getPrice() == 0) {
+            return ResponseEntity.badRequest().body("Stuff' price should be provided");
+        }
+        stuffProvider.addNewStuffWithDetails(stuffWithDetails);
+        return ResponseEntity.ok("Stuff with details successfully created");
+
     }
 }

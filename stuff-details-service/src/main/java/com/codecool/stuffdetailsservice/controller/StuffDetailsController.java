@@ -21,7 +21,8 @@ public class StuffDetailsController {
     }
 
     @PostMapping("/add/{stuff_id}")
-    public ResponseEntity addNewStuffDetails(@PathVariable("stuff_id") Long stuffId, @RequestBody StuffDetails stuffDetails) {
+    public ResponseEntity addNewStuffDetails(@PathVariable("stuff_id") Long stuffId,
+                                             @RequestBody StuffDetails stuffDetails) {
         if(stuffDetails.getDescription() == null) {
             return ResponseEntity.badRequest().body("Description should be provided");
         }

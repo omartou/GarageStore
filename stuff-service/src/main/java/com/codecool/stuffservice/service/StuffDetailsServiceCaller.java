@@ -20,4 +20,8 @@ public class StuffDetailsServiceCaller {
                 .getForEntity(baseURL + "/detail/" + stuffId, StuffDetailsResult.class)
                 .getBody();
     }
+
+    public void addNewStuffDetail(Long stuffId, StuffDetailsResult stuffDetailsResult) {
+        restTemplate.postForEntity(baseURL + "/detail/add/" + stuffId, stuffDetailsResult, String.class);
+    }
 }

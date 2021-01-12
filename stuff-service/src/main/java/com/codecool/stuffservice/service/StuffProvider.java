@@ -36,4 +36,15 @@ public class StuffProvider {
 
         return stuffWithDetails;
     }
+
+    public void addNewStuffWithDetails(StuffWithDetails stuffWithDetails) {
+        Stuff stuff = Stuff.builder()
+                .name(stuffWithDetails.getStuff().getName())
+                .price(stuffWithDetails.getStuff().getPrice())
+                .image(stuffWithDetails.getStuff().getImage())
+                .build();
+
+        Stuff stuffFromDB = stuffRepository.save(stuff);
+        stuffDetailsServiceCaller.addNewStuffDetail(stuffFromDB.getId(), stuffWithDetails.getStuffDetailsResult());
+    }
 }
