@@ -15,4 +15,16 @@ public class StuffDetailsProvider {
     public StuffDetails getStuffDetailsByStuffId(Long stuffId) {
         return stuffDetailsRepository.getStuffDetailsByStuffId(stuffId);
     }
+
+    public void addNewStuffDetails(Long stuffId, StuffDetails stuffDetails) {
+        StuffDetails newStuffDetails = StuffDetails.builder()
+                .description(stuffDetails.getDescription())
+                .purchaseYear(stuffDetails.getPurchaseYear())
+                .stuffId(stuffId)
+                .youtubeVideoUrl(stuffDetails.getYoutubeVideoUrl())
+                .build();
+        stuffDetailsRepository.save(newStuffDetails);
+
+
+    }
 }
