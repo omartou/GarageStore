@@ -14,13 +14,8 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 public class StuffServiceApplication {
 
-
-	private final DBInitializer dbInitializer;
-
 	@Autowired
-	public StuffServiceApplication(DBInitializer dbInitializer) {
-		this.dbInitializer = dbInitializer;
-	}
+	private DBInitializer dbInitializer;
 
 	public static void main(String[] args) {
 		SpringApplication.run(StuffServiceApplication.class, args);
