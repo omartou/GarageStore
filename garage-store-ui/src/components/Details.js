@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import Form from './Form';
 
 const youtubeEmbedPath = "https://www.youtube.com/embed";
 
 function Details(props) {
+    console.log("props", props);
     const id = props.match.params.id;
     console.log("id: ", id);
 
@@ -44,7 +46,7 @@ function Details(props) {
             <iframe width="853" height="505" src={embedUrl} frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen></iframe>
-            <Link to={{pathname: `/update/${id}`}}>
+            <Link name={name} to={{pathname: `/update/${id}`}}>
                 UPDATE
             </Link>
         </div>
