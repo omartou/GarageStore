@@ -32,23 +32,23 @@ public class DBInitializer {
 
         stuffList.add(Stuff.builder()
                 .name("Elvis's sunglasses")
-                .image("https://m.media-amazon.com/images/I/61ia597d0kL.jpg")
+                .image("https://images.unsplash.com/photo-1606196480617-47862998df85?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80")
                 .price(100)
                 .build());
 
         stuffList.add(Stuff.builder()
                 .name("Jamie Oliver knife set")
-                .image("https://cdn77.online-textil.com/upload/images/73/d2/73d26837059aa00a2be3530c00fff00ap9890-1280x1280.jpg")
+                .image("https://images.unsplash.com/photo-1593618998160-e34014e67546?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=911&q=80")
                 .price(10).build());
 
         stuffList.add(Stuff.builder()
                 .name("Samurai sword")
-                .image("https://media.istockphoto.com/photos/samurai-sword-katana-picture-id535334763")
+                .image("https://images.unsplash.com/photo-1569995617877-d845becc0d40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")
                 .price(10000).build());
 
         stuffList.add(Stuff.builder()
                 .name("IronMan suit")
-                .image("https://mk47.buyfullbodyarmors.com/media/iron_man_suit_mark_47_armor_costume_buyfullbodyarmors_com_review3.jpg")
+                .image("https://images.unsplash.com/photo-1563902698405-d4ac5e6047b9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")
                 .price(1000).build());
 
         stuffRepository.saveAll(stuffList);
