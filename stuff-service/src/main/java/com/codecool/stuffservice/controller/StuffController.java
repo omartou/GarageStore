@@ -44,16 +44,21 @@ public class StuffController {
         stuffProvider.updateStuffById(stuffId, stuffWithDetails);
     }
 
+//    @PostMapping("/add")
+//    public ResponseEntity addNewStuffWithDetails(@RequestBody StuffWithDetails stuffWithDetails) {
+//        if (stuffWithDetails.getStuff().getName() == null) {
+//            return ResponseEntity.badRequest().body("Stuff' name should be provided");
+//        }
+//        if (stuffWithDetails.getStuff().getPrice() == 0) {
+//            return ResponseEntity.badRequest().body("Stuff' price should be provided");
+//        }
+//        stuffProvider.addNewStuffWithDetails(stuffWithDetails);
+//        return ResponseEntity.ok("Stuff with details successfully created");
+//
+//    }
+
     @PostMapping("/add")
     public ResponseEntity addNewStuffWithDetails(@RequestBody StuffWithDetails stuffWithDetails) {
-        if (stuffWithDetails.getStuff().getName() == null) {
-            return ResponseEntity.badRequest().body("Stuff' name should be provided");
-        }
-        if (stuffWithDetails.getStuff().getPrice() == 0) {
-            return ResponseEntity.badRequest().body("Stuff' price should be provided");
-        }
-        stuffProvider.addNewStuffWithDetails(stuffWithDetails);
-        return ResponseEntity.ok("Stuff with details successfully created");
-
+        return stuffProvider.addNewStuffWithDetails(stuffWithDetails);
     }
 }
