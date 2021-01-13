@@ -25,17 +25,17 @@ public class DBInitializer {
         List<StuffDetails> stuffDetailsList = new ArrayList<>();
         stuffDetailsList.add(StuffDetails.builder()
                   .purchaseYear("2019")
-                  .description("Beleive me it is original, but I have more than 10 pairs!")
-                  .youtubeVideoUrl("https://www.youtube.com/watch?.....")
+                  .description("Beleive me it is original, but I have more than 10 pairs! JUST BUY IT... ")
+                  .youtubeVideoUrl("https://www.youtube.com/watch?v=yshNZlWezDk")
                   .stuffId(1L)
                   .build()
         );
 
         stuffDetailsList.add(
                 StuffDetails.builder()
-                        .purchaseYear("2018")
+                        .purchaseYear("2010")
                         .description("No UV filter, but who cares? This was owned by Elvis once!")
-                        .youtubeVideoUrl("https://www.youtube.com/watch?.....")
+                        .youtubeVideoUrl("https://www.youtube.com/watch?v=Dm8M7_P2NiY")
                         .stuffId(2L)
                         .build()
         );
@@ -44,25 +44,25 @@ public class DBInitializer {
                 StuffDetails.builder()
                         .purchaseYear("2020")
                         .description("Knife set of 12pcs. So Sharp so Good!")
-                        .youtubeVideoUrl("https://www.youtube.com/watch?.....")
+                        .youtubeVideoUrl("https://www.youtube.com/watch?v=yJ44SxiemMs")
                         .stuffId(3L)
                         .build()
         );
 
         stuffDetailsList.add(
                 StuffDetails.builder()
-                        .purchaseYear("1980")
+                        .purchaseYear("2005")
                         .description("Sword of Uma Turman from the famous movie Kill Bill! Yeees... of course made by Hattori Hanso!")
-                        .youtubeVideoUrl("https://www.youtube.com/watch?.....")
+                        .youtubeVideoUrl("https://www.youtube.com/watch?v=VE_4zHNcieM")
                         .stuffId(4L)
                         .build()
         );
 
         stuffDetailsList.add(
                 StuffDetails.builder()
-                        .purchaseYear("1990")
-                        .description("TODO OMAR")
-                        .youtubeVideoUrl("https://www.youtube.com/watch?.....")
+                        .purchaseYear("2018")
+                        .description("be like Tony..")
+                        .youtubeVideoUrl("https://www.youtube.com/watch?v=9_GfjE3-1NE")
                         .stuffId(5L)
                         .build()
         );
