@@ -7,7 +7,7 @@ function Main(props) {
     const [stuffs, setStuffs] = useState([{name: "loading..."}]);
 
     useEffect(() => {
-        Axios.get('http://localhost:8081/stuff/all').then(({data}) => {
+        Axios.get('http://localhost:8762/stuff/all').then(({data}) => {
             setStuffs(data);
             console.log(data);
             }

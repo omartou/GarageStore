@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 const youtubeEmbedPath = "https://www.youtube.com/embed";
 
@@ -11,10 +12,11 @@ function Details(props) {
     const [details, setDetails] = useState({});
     const [loaded, setLoaded] = useState(false);
 
+
     console.log("props: " , props);
 
     useEffect(() => {
-        axios.get(`http://localhost:8081/stuff/${id}`).then((response) => {
+        axios.get(`http://localhost:8762/stuff/${id}`).then((response) => {
             const data = response.data;
             setDetails(data);
             setLoaded(true);
@@ -26,7 +28,7 @@ function Details(props) {
         return (<div>Please wait...</div>);
     }
 
-    const {name, price, image } = details.stuff; // destruct
+    const { name, price, image } = details.stuff; // destruct
     const { stuffDetailsResult } = details;
     console.log("stuffdetailsresult", stuffDetailsResult);
     const {purchaseYear, description } = stuffDetailsResult;
@@ -39,6 +41,9 @@ function Details(props) {
             <h2>Details: </h2>
             <div>Purchase year: {purchaseYear}</div>
             <div>Description: {description}</div>
+            <Link to={{pathname: `/update/${id}`}}>
+                UPDATE
+            </Link>
         </div>
     );
 }

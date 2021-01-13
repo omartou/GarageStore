@@ -7,11 +7,11 @@ function Form() {
             <form method="POST" action="/stuff/add">
                 <label htmlFor="name" >Name your stuff : </label>
                 <br/>
-                <textarea type="text" id="name" name="name" placeholder="e.g: Adidas sunglasses..."/>
+                <input type="text" id="name" name="name" placeholder="e.g: Adidas sunglasses..." required="true"/>
                 <br/><br/>
                 <label htmlFor="price" >Give the price: </label>
                 <br/>
-                <textarea type="text" id="price" name="price" placeholder="...what makes you happy."/>
+                <input type="text" id="price" name="price" placeholder="...what makes you happy." required="true"/>
                 <br/><br/>
                 <label htmlFor="image" >Upload an image about your product: </label>
                 <br/>
@@ -19,11 +19,11 @@ function Form() {
                 <br/><br/>
                 <label htmlFor="year" >When did you gain this stuff: </label>
                 <br/>
-                <textarea type="text" id="year" name="year" placeholder="e.g.: 2020..."/>
+                <input type="text" id="year" name="year" placeholder="e.g.: 2020..." required="true"/>
                 <br/><br/>
                 <label htmlFor="description" >Description: </label>
                 <br/>
-                <textarea type="text" id="description" name="description" placeholder="..."/>
+                <textarea type="text" id="description" name="description" placeholder="..." required="true"/>
                 <br/><br/>
                 <label htmlFor="youtubeVideoUrl" >Upload video: </label>
                 <br/>
