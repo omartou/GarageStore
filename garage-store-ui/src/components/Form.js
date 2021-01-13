@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
+import '../App.css';
+
 
 function Form(props) {
     const id = props.match.params.id;

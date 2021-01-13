@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Link} from 'react-router-dom';
 import Axios from 'axios';
+import '../App.css';
+import '../Main.css';
+
 
 
 function Main(props) {
@@ -15,19 +18,17 @@ function Main(props) {
     },[]);
 
     return(
-        <div style={main}>
+        <div style={main} >
             <h1>GARAGE STORE</h1>
-            <div>
+            <div className='card-container'>
                 {stuffs.map(stuff => {
                     const {id, name, image, price } = stuff;
                     return (
-                        <div>
-                            <Link to={{pathname: `/stuff/${id}`}}>
-                                 {name}
-                            </Link>
-                            <div>{price}$</div>
-                            <img src={image} alt="alternative text" width="200" height="150" />
-                        </div>
+                        <Link to={{pathname: `/stuff/${id}`}} className='card'>
+                            <div className='card-name' >{name}</div>
+                            <div className='card-price'>{price}$</div>
+                            <img className='card-image' src={image} alt="alternative text" width="200" height="150" />
+                        </Link>
                     );
                 })
                 }

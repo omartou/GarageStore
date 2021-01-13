@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Form from './Form';
+import '../App.css';
+import '../Details.css';
+
 
 const youtubeEmbedPath = "https://www.youtube.com/embed";
 
@@ -37,15 +40,20 @@ function Details(props) {
 
     return (
         <div style={detailsStyle}>
-            <h1>See more about chosen stuff: {name}</h1>
-            <div>LAST chance, this is only for {price}$, grab it right now!</div>
-            <img src={image} alt="alternative text" width="200" height="150"/>
-            <h2>Details: </h2>
-            <div>Purchase year: {purchaseYear}</div>
-            <div>Description: {description}</div>
-            <iframe width="853" height="505" src={embedUrl} frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen></iframe>
+            <h1>{name}</h1>
+            <div className='detail-card'>
+                <div className='detail-card-top'>
+                    <img src={image} alt="alternative text" width="200" height="150" className='detail-card-image'/>
+                    <div className='detail-card-price'>LAST chance: {price}$</div>
+                    <div className='detail-card-year'>Purchase year: {purchaseYear}</div>
+                    <div className='detail-card-description'>Description: {description}</div>
+                </div>
+                <div className='detail-card-bottom'>
+                    <iframe className='detail-card-youtube-url' width="853" height="505" src={embedUrl} frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen></iframe>
+                </div>
+            </div>
             <Link name={name} to={{pathname: `/update/${id}`}}>
                 UPDATE
             </Link>
