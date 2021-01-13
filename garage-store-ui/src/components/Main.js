@@ -26,7 +26,7 @@ function Main(props) {
                                  {name}
                             </Link>
                             <div>{price}$</div>
-                            <div>{ image }</div>
+                            <img src={image} alt="alternative text" width="200" height="150" />
                         </div>
                     );
                 })

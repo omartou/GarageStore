@@ -3,6 +3,10 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 const youtubeEmbedPath = "https://www.youtube.com/embed";
+const youTubeBaseUrl= "https://www.youtube.com/watch?v=";
+
+const youTubeVideoId = "Y1_VsyLAGuk";
+
 
 
 function Details(props) {
@@ -31,14 +35,19 @@ function Details(props) {
     const { name, price, image } = details.stuff; // destruct
     const { stuffDetailsResult } = details;
     console.log("stuffdetailsresult", stuffDetailsResult);
-    const {purchaseYear, description } = stuffDetailsResult;
+    const {purchaseYear, description, youtubeVideoUrl } = stuffDetailsResult;
+    const embedUrl = `${youtubeEmbedPath}/${youTubeVideoId}`;
 
     return (
         <div style={detailsStyle}>
             <h1>See more about chosen stuff: {name}</h1>
             <div>LAST chance, this is only for {price}$, grab it right now!</div>
-            <img alt="alternative text"/>
+            <img src={image} alt="alternative text" width="200" height="150"/>
             <h2>Details: </h2>
+            <div>{youtubeVideoUrl}</div>
+            <iframe width="853" height="505" src={embedUrl} frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen></iframe>
             <div>Purchase year: {purchaseYear}</div>
             <div>Description: {description}</div>
             <Link to={{pathname: `/update/${id}`}}>
