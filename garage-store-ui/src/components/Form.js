@@ -2,31 +2,39 @@ import React, {useEffect, useState} from 'react';
 import Axios from 'axios';
 
 function Form(props) {
-    // const [details, setDetails] = useState(false);
+    // const [details, setDetails] = useState({});
     // const [loaded, setLoaded] = useState(false);
     // const [isNew, setIsNew] = useState(false);
     const id = props.match.params.id;
+    // const path = props.location.pathname;
+    // console.log(props)
 
-    const addNewStuff = () => {
-        const
-
-    }
+    // const addNewStuff = () => {
+    //     const
+    //
+    // }
 
 
 
     // useEffect(() => {
-    //     Axios.get(`http://localhost:8762/stuff/${id}`).then((response) => {
-    //         const data = response.data;
-    //         setDetails(data);
-    //         setLoaded(true);
-    //         console.log("data arrived", data);
-    //     });
+    //     if (path.includes("update")) {
+    //         Axios.get(`http://localhost:8762/stuff/${id}`).then((response) => {
+    //             // const data = response.data;
+    //             setDetails(response.data);
+    //             setLoaded(true);
+    //             // console.log("data arrived", data);
+    //         });
+    //     }
     // }, []);
     //
+    // console.log(details);
+    // console.log(path.includes("update"));
+
+
     // if (!loaded) {
     //     return (<div>Please wait...</div>);
     // }
-    //
+
     // const { name, price, image } = details.stuff; // destruct
     // const { stuffDetailsResult } = details;
     // console.log("stuffdetailsresult", stuffDetailsResult);
@@ -67,7 +75,7 @@ function Form(props) {
                 <input
                     type="button"
                     value="Submit"/>
-                    onClick={addNewStuff}
+                    {/*onClick={addNewStuff}*/}
             </form>
 
         </div>
