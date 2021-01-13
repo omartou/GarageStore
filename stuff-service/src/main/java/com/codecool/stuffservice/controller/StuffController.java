@@ -27,15 +27,9 @@ public class StuffController {
         return stuffProvider.getStuffWithDetailsByStuffId(stuffId);
     }
 
-    @PostMapping("/{stuff_id}")
+    @PostMapping("/{stuff_id}/sold")
     public void setSoldStatusByStuffId(@PathVariable("stuff_id") Long stuffId) {
         stuffProvider.setSoldStatusByStuffId(stuffId);
-    }
-
-    // maybe we can ignore this method, because the method above is doing the same ?!?!
-    @GetMapping("/{stuff_id}/update")
-    public StuffWithDetails getStuffForUpdateById(@PathVariable("stuff_id") Long stuffId) {
-        return stuffProvider.getStuffWithDetailsByStuffId(stuffId);
     }
 
     @PutMapping("/{stuff_id}/update")
