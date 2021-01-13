@@ -3,6 +3,7 @@ package com.codecool.stuffservice.service;
 import com.codecool.stuffservice.model.StuffDetailsResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,8 +26,8 @@ public class StuffDetailsServiceCaller {
         restTemplate.put(baseURL + "/detail/" + stuffId + "/update", stuffDetailsResult,
                 String.class);
     }
-      
-    public void addNewStuffDetail(Long stuffId, StuffDetailsResult stuffDetailsResult) {
-        restTemplate.postForEntity(baseURL + "/detail/add/" + stuffId, stuffDetailsResult, String.class);
+
+    public ResponseEntity addNewStuffDetail(Long stuffId, StuffDetailsResult stuffDetailsResult) {
+        return restTemplate.postForEntity(baseURL + "/detail/add/" + stuffId, stuffDetailsResult, String.class);
     }
 }

@@ -5,11 +5,11 @@ import com.codecool.stuffservice.model.StuffDetailsResult;
 import com.codecool.stuffservice.model.StuffWithDetails;
 import com.codecool.stuffservice.repository.StuffRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class StuffProvider {
@@ -45,15 +45,52 @@ public class StuffProvider {
         stuffDetailsServiceCaller.updateStuffDetailsByStuffId(stuffId, stuffWithDetails.getStuffDetailsResult());
     }
 
-    public void addNewStuffWithDetails(StuffWithDetails stuffWithDetails) {
+    public ResponseEntity addNewStuffWithDetails(StuffWithDetails stuffWithDetails) {
+        Map<String, List<String>> responseModel = new TreeMap<>();
+
+        //Check properties of Stuff and collect errors
+        List<String> errorsOfStuff = new ArrayList<>();
+        if (stuffWithDetails.getStuff().getName() == null) {
+            errorsOfStuff.add("Stuff' name should be provided");
+        }
+        if (stuffWithDetails.getStuff().getPrice() == 0) {
+            errorsOfStuff.add("Stuff' price should be provided");
+        }
+        if (!errorsOfStuff.isEmpty()) {
+            responseModel.put("Stuff", errorsOfStuff);
+        }
+
+        //Check properties of StuffDetailsResult and collect errors
+        List<String> errorsOfStuffDetailsResult = new ArrayList<>();
+        if(stuffWithDetails.getStuffDetailsResult().getDescription() == null) {
+            errorsOfStuffDetailsResult.add("Description should be provided");
+        }
+        if (stuffWithDetails.getStuffDetailsResult().getPurchaseYear() == null) {
+            errorsOfStuffDetailsResult.add("Purchased year should be provided");
+        }
+        if (!errorsOfStuffDetailsResult.isEmpty()) {
+            responseModel.put("StuffDetails", errorsOfStuffDetailsResult);
+        }
+
+        //In case of any error returns with the errors
+        if (!responseModel.isEmpty()) {
+            return ResponseEntity.badRequest().body(responseModel);
+        }
+
+        List<String> successMessages = new ArrayList<>();
         Stuff stuff = Stuff.builder()
                 .name(stuffWithDetails.getStuff().getName())
                 .price(stuffWithDetails.getStuff().getPrice())
                 .image(stuffWithDetails.getStuff().getImage())
                 .build();
 
+        successMessages.add("Stuff succesfully created");
         Stuff stuffFromDB = stuffRepository.save(stuff);
-        stuffDetailsServiceCaller.addNewStuffDetail(stuffFromDB.getId(), stuffWithDetails.getStuffDetailsResult());
+
+        ResponseEntity detailsServiceResponse = stuffDetailsServiceCaller.addNewStuffDetail(stuffFromDB.getId(), stuffWithDetails.getStuffDetailsResult());
+        successMessages.add((String) detailsServiceResponse.getBody());
+        responseModel.put("StuffWithDetails", successMessages);
+        return ResponseEntity.ok(responseModel);
     }
 
     public void setSoldStatusByStuffId(Long stuffId) {

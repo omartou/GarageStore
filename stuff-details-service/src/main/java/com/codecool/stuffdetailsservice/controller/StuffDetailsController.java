@@ -26,16 +26,9 @@ public class StuffDetailsController {
         stuffDetailsProvider.updateStuffDetailsByStuffId(stuffId, stuffDetails);
     }
 
-
     @PostMapping("/add/{stuff_id}")
     public ResponseEntity addNewStuffDetails(@PathVariable("stuff_id") Long stuffId,
                                              @RequestBody StuffDetails stuffDetails) {
-        if(stuffDetails.getDescription() == null) {
-            return ResponseEntity.badRequest().body("Description should be provided");
-        }
-        if (stuffDetails.getPurchaseYear() == null) {
-            return ResponseEntity.badRequest().body("Purchased year should be provided");
-        }
         stuffDetailsProvider.addNewStuffDetails(stuffId, stuffDetails);
         return ResponseEntity.ok("Details successfully created");
     }
