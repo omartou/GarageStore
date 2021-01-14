@@ -1,3 +1,8 @@
+.main-style {
+    marginTop: 90px;
+    padding: 30px;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;

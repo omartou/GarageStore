@@ -18,7 +18,7 @@ function Main(props) {
     },[]);
 
     return(
-        <div style={main} >
+        <div className='main-style' >
             <h1>GARAGE STORE</h1>
             <div className='card-container'>
                 {stuffs.map(stuff => {
@@ -35,11 +35,6 @@ function Main(props) {
             </div>
         </div>
     );
-}
-
-const main = {
-    marginTop: '90px',
-    padding: '30px'
 }
 
 export default Main;

@@ -39,7 +39,7 @@ function Details(props) {
     const embedUrl = `${youtubeEmbedPath}/${youtubeVideoUrl}`;
 
     return (
-        <div style={detailsStyle}>
+        <div className='details-style'>
             <h1>{name}</h1>
             <div className='detail-card'>
                 <div className='detail-card-top'>
@@ -59,11 +59,6 @@ function Details(props) {
             </Link>
         </div>
     );
-}
-
-const detailsStyle = {
-    marginTop: '90px',
-    padding: '30px'
 }
 
 export default Details;

@@ -5,7 +5,7 @@ import '../About.css';
 
 function About() {
     return (
-        <div style={aboutStyle}>
+        <div className='about-style'>
             <h1>WELCOME TO THE GARAGE STORE COMPANY!</h1>
             <div className='about-body'>
                 <div className='about-container'>
@@ -26,11 +26,6 @@ function About() {
             </div>
         </div>
     );
-}
-
-const aboutStyle = {
-    marginTop: '90px',
-    padding: '30px'
 }
 
 export default About;

@@ -1,13 +1,17 @@
-.about-style {
+body {
+    margin-top: 90px;
+}
+
+.form-style {
     margin-top: 90px;
     padding: 30px;
 }
 
-.about-body {
-    margin-left: 280px;
+.form-body {
+    margin-left: 280px
 }
 
-.about-container {
+.form-container {
     background-color: white;
     border: solid black 2px;
     border-radius: 7px;
@@ -16,7 +20,12 @@
     opacity: 60%;
 }
 
-p {
-    padding-left: 200px;
-    padding-right: 200px;
+.input-container {
+    margin: 35px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 20px;
+
 }
