@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
-import '../App.css'
+import '../App.css';
+import '../Form.css';
 
 function Form(props) {
     // console.log(props);
@@ -130,49 +131,54 @@ function Form(props) {
     }
 
     return(
-        <div style={formStyle}>
+        <div className='form-style'>
             {isUpdate ?
                 <h1>Update your STUFF data</h1> :
                 <h1>Upload a new STUFF to sell</h1>
             }
-            <form method="POST" action="/stuff/add">
-                <label htmlFor="name" >Name your stuff : </label>
-                <br/>
-                <input type="text" id="name" name="name" placeholder="..." defaultValue={name}/>
-                <br/><br/>
-                <label htmlFor="price" >Give the price: </label>
-                <br/>
-                <input type="text" id="price" name="price" placeholder="...what makes you happy." defaultValue={price}/>
-                <br/><br/>
-                <label htmlFor="image" >Upload an image about your product: </label>
-                <br/>
-                <textarea type="text" id="image" name="image" placeholder="http://image_example.com" defaultValue={image}/>
-                <br/><br/>
-                <label htmlFor="year" >When did you gain this stuff: </label>
-                <br/>
-                <input type="text" id="year" name="year" placeholder="e.g.: 2020..." defaultValue={year}/>
-                <br/><br/>
-                <label htmlFor="description" >Description: </label>
-                <br/>
-                <textarea type="text" id="description" name="description" placeholder="..." defaultValue={description} />
-                <br/><br/>
-                <label htmlFor="youtubeVideoUrl" >Upload video: </label>
-                <br/>
-                <textarea type="text" id="youtubeVideoUrl" name="youtubeVideoUrl" placeholder="Give a YouTube link to obtain more buyers..." defaultValue={youtubeVideoUrl}/>
-                <br/><br/>
-                <input
-                    type="button"
-                    value= {buttonText}
-                    onClick={formHandler}/>
-
-            </form>
+            <div className='form-body'>
+                <div className='form-container'>
+                    <form  method="POST" action="/stuff/add">
+                        <div className='input-container'>
+                            <label htmlFor="name" >Name your stuff : </label>
+                            <br/>
+                            <input contentEditable='true' type="text" id="name" name="name" placeholder="give a name" defaultValue={name} />
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="price" >Give the price: </label>
+                            <br/>
+                            <input type="text" id="price" name="price" placeholder="...what makes you happy." defaultValue={price}/>
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="image" >Copy an image url: </label>
+                            <br/>
+                            <textarea className='img-textarea' type="text" id="image" name="image" placeholder="http://image_example.com" defaultValue={image} maxLength="500"/>
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="year" >When did you gain this stuff: </label>
+                            <br/>
+                            <input type="text" id="year" name="year" placeholder="e.g.: 2020..." defaultValue={year}/>
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="description" >Description: </label>
+                            <br/>
+                            <textarea className='descr-textarea' type="text" id="description" name="description" placeholder="..." defaultValue={description} maxLength="500" />
+                        </div>
+                        <div className='input-container'>
+                            <label htmlFor="youtubeVideoUrl" >Copy video id: </label>
+                            <br/>
+                            <textarea className='url-textarea' type="text" id="youtubeVideoUrl" name="youtubeVideoUrl" placeholder="Give a YouTube link to obtain more buyers..." defaultValue={youtubeVideoUrl} maxLength="500"/>
+                        </div>
+                        <input
+                            className='button'
+                            type="button"
+                            value= {buttonText}
+                            onClick={formHandler}/>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 }
-
-const formStyle = {
-    marginTop: '90px',
-    padding: '30px'
-};
 
 export default Form;
