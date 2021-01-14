@@ -27,7 +27,7 @@ public class StuffController {
         return stuffProvider.getStuffWithDetailsByStuffId(stuffId);
     }
 
-    @PostMapping("/{stuff_id}/sold")
+    @PutMapping("/{stuff_id}/sold")
     public void setSoldStatusByStuffId(@PathVariable("stuff_id") Long stuffId) {
         stuffProvider.setSoldStatusByStuffId(stuffId);
     }

@@ -26,6 +26,13 @@ detail-card-bottom {
 
 }
 
+.detail-card-price-red {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px;
+    color: darkred;
+}
+
 .detail-card-image {
     float: left;
     margin: 20px;

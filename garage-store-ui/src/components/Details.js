@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Form from './Form';
 import '../App.css';
 import '../Details.css';
@@ -15,6 +15,7 @@ function Details(props) {
 
     const [details, setDetails] = useState({});
     const [loaded, setLoaded] = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
 
     console.log("props: " , props);
@@ -28,11 +29,25 @@ function Details(props) {
         });
     }, []);
 
+    function setSoldStatus() {
+        axios.put(`http://localhost:8762/stuff/${id}/sold`)
+            .then((response) => {
+                console.log("response:", response)
+                if (response.status===200) {
+                    setRedirect(true);
+                }
+            });
+    }
+
     if (!loaded) {
         return (<div>Please wait...</div>);
     }
 
-    const { name, price, image } = details.stuff; // destruct
+    if (redirect) {
+        return <Redirect to={`/`}/>
+    }
+
+    const { name, price, image, soldStatus } = details.stuff; // destruct
     const { stuffDetailsResult } = details;
     console.log("stuffdetailsresult", stuffDetailsResult);
     const {purchaseYear, description, youtubeVideoUrl } = stuffDetailsResult;
@@ -44,7 +59,10 @@ function Details(props) {
             <div className='detail-card'>
                 <div className='detail-card-top'>
                     <img src={image} alt="alternative text" width="200" height="150" className='detail-card-image'/>
-                    <div className='detail-card-price'>LAST chance: {price}$</div>
+                    {soldStatus ?
+                        <div className='detail-card-price-red'>SOLD price: {price}$</div> :
+                        <div className='detail-card-price'>ACTUAL price: {price}$ - LAST chance</div>
+                    }
                     <div className='detail-card-year'>Purchase year: {purchaseYear}</div>
                     <div className='detail-card-description'>Description: {description}</div>
                 </div>
@@ -57,6 +75,9 @@ function Details(props) {
             <Link name={name} to={{pathname: `/update/${id}`}}>
                 UPDATE
             </Link>
+            <button value="SOLD" onClick={setSoldStatus}>
+                SOLD
+            </button>
         </div>
     );
 }
