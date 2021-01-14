@@ -142,7 +142,7 @@ function Form(props) {
                         <div className='input-container'>
                             <label htmlFor="name" >Name your stuff : </label>
                             <br/>
-                            <input contentEditable='true' type="text" id="name" name="name" placeholder="..." defaultValue={name} />
+                            <input contentEditable='true' type="text" id="name" name="name" placeholder="give a name" defaultValue={name} />
                         </div>
                         <div className='input-container'>
                             <label htmlFor="price" >Give the price: </label>
@@ -150,7 +150,7 @@ function Form(props) {
                             <input type="text" id="price" name="price" placeholder="...what makes you happy." defaultValue={price}/>
                         </div>
                         <div className='input-container'>
-                            <label htmlFor="image" >Upload an image about your product: </label>
+                            <label htmlFor="image" >Copy an image url: </label>
                             <br/>
                             <textarea className='img-textarea' type="text" id="image" name="image" placeholder="http://image_example.com" defaultValue={image} maxLength="500"/>
                         </div>
@@ -165,7 +165,7 @@ function Form(props) {
                             <textarea className='descr-textarea' type="text" id="description" name="description" placeholder="..." defaultValue={description} maxLength="500" />
                         </div>
                         <div className='input-container'>
-                            <label htmlFor="youtubeVideoUrl" >Upload video: </label>
+                            <label htmlFor="youtubeVideoUrl" >Copy video id: </label>
                             <br/>
                             <textarea className='url-textarea' type="text" id="youtubeVideoUrl" name="youtubeVideoUrl" placeholder="Give a YouTube link to obtain more buyers..." defaultValue={youtubeVideoUrl} maxLength="500"/>
                         </div>

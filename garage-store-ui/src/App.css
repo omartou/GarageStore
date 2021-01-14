@@ -11,7 +11,7 @@ h1 {
     margin: 30px;
     border: solid black 2px;
     background-color: white;
-    opacity: 60%;
+    opacity: 80%;
 }
 
 h2 {
@@ -28,6 +28,8 @@ body {
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center;
+
 }
 
 a {

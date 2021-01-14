@@ -8,7 +8,6 @@
     flex-wrap: wrap;
     width: 80%;
     margin: 0 auto;
-
 }
 
 .card {
@@ -24,7 +23,7 @@
     margin: 20px;
     background-color: white;
     text-decoration: none;
-    opacity: 80%;
+    opacity: 90%;
 
 
 }
