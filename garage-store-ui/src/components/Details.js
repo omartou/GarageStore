@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Form from './Form';
 import '../App.css';
 import '../Details.css';
@@ -15,6 +15,7 @@ function Details(props) {
 
     const [details, setDetails] = useState({});
     const [loaded, setLoaded] = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
 
     console.log("props: " , props);
@@ -28,8 +29,22 @@ function Details(props) {
         });
     }, []);
 
+    function setSoldStatus() {
+        axios.put(`http://localhost:8762/stuff/${id}/sold`)
+            .then((response) => {
+                console.log("response:", response)
+                if (response.status===200) {
+                    setRedirect(true);
+                }
+            });
+    }
+
     if (!loaded) {
         return (<div>Please wait...</div>);
+    }
+
+    if (redirect) {
+        return <Redirect to={`/`}/>
     }
 
     const { name, price, image } = details.stuff; // destruct
@@ -57,6 +72,9 @@ function Details(props) {
             <Link name={name} to={{pathname: `/update/${id}`}}>
                 UPDATE
             </Link>
+            <button value="SOLD" onClick={setSoldStatus}>
+                SOLD
+            </button>
         </div>
     );
 }
