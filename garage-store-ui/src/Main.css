@@ -42,5 +42,10 @@
     font-size: 30px;
 }
 
+.card-price-red {
+    font-size: 30px;
+    color: darkred;
+}
+
 .card-image {
 }

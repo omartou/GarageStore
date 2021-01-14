@@ -47,7 +47,7 @@ function Details(props) {
         return <Redirect to={`/`}/>
     }
 
-    const { name, price, image } = details.stuff; // destruct
+    const { name, price, image, soldStatus } = details.stuff; // destruct
     const { stuffDetailsResult } = details;
     console.log("stuffdetailsresult", stuffDetailsResult);
     const {purchaseYear, description, youtubeVideoUrl } = stuffDetailsResult;
@@ -59,7 +59,10 @@ function Details(props) {
             <div className='detail-card'>
                 <div className='detail-card-top'>
                     <img src={image} alt="alternative text" width="200" height="150" className='detail-card-image'/>
-                    <div className='detail-card-price'>LAST chance: {price}$</div>
+                    {soldStatus ?
+                        <div className='detail-card-price-red'>SOLD price: {price}$</div> :
+                        <div className='detail-card-price'>ACTUAL price: {price}$ - LAST chance</div>
+                    }
                     <div className='detail-card-year'>Purchase year: {purchaseYear}</div>
                     <div className='detail-card-description'>Description: {description}</div>
                 </div>
