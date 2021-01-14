@@ -1,0 +1,21 @@
+.about-body {
+    display: table;
+    margin-left: 280px;
+
+}
+
+.about-container {
+    background-color: white;
+    border: solid black 2px;
+    border-radius: 7px;
+    width: 75%;
+    padding-bottom: 50px;
+    opacity: 60%;
+}
+
+
+p {
+    padding-left: 200px;
+    padding-right: 200px;
+
+}
