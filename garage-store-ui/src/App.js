@@ -12,11 +12,11 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Switch>
-            <Route exact={true} path='/' component={Main}></Route>
-            <Route exact path='/stuff/:id' component={Details}></Route>
-            <Route exact path='/add' component={Form}></Route>
-            <Route exact path='/update/:id' component={Form}></Route>
-            <Route exact path='/about' component={About}></Route>
+            <Route exact={true} path='/' component={Main}/>
+            <Route exact path='/stuff/:id' component={Details}/>
+            <Route exact path='/add' component={Form}/>
+            <Route exact path='/update/:id' component={Form}/>
+            <Route exact path='/about' component={About}/>
         </Switch>
       </BrowserRouter>
   );
