@@ -111,7 +111,7 @@ function Form(props) {
                         <div className='input-container'>
                             <label htmlFor="name" >Name your stuff : </label>
                             <br/>
-                            <input type="text" id="name" name="name" placeholder="..." defaultValue={name}/>
+                            <input contentEditable='true' type="text" id="name" name="name" placeholder="..." defaultValue={name} />
                         </div>
                         <div className='input-container'>
                             <label htmlFor="price" >Give the price: </label>
@@ -121,7 +121,7 @@ function Form(props) {
                         <div className='input-container'>
                             <label htmlFor="image" >Upload an image about your product: </label>
                             <br/>
-                            <textarea type="text" id="image" name="image" placeholder="http://image_example.com" defaultValue={image}/>
+                            <textarea className='img-textarea' type="text" id="image" name="image" placeholder="http://image_example.com" defaultValue={image} maxLength="500"/>
                         </div>
                         <div className='input-container'>
                             <label htmlFor="year" >When did you gain this stuff: </label>
@@ -131,14 +131,15 @@ function Form(props) {
                         <div className='input-container'>
                             <label htmlFor="description" >Description: </label>
                             <br/>
-                            <textarea type="text" id="description" name="description" placeholder="..." defaultValue={description} />
+                            <textarea className='descr-textarea' type="text" id="description" name="description" placeholder="..." defaultValue={description} maxLength="500" />
                         </div>
                         <div className='input-container'>
                             <label htmlFor="youtubeVideoUrl" >Upload video: </label>
                             <br/>
-                            <textarea type="text" id="youtubeVideoUrl" name="youtubeVideoUrl" placeholder="Give a YouTube link to obtain more buyers..." defaultValue={youtubeVideoUrl}/>
+                            <textarea className='url-textarea' type="text" id="youtubeVideoUrl" name="youtubeVideoUrl" placeholder="Give a YouTube link to obtain more buyers..." defaultValue={youtubeVideoUrl} maxLength="500"/>
                         </div>
                         <input
+                            className='button'
                             type="button"
                             value= {buttonText}
                             onClick={formHandler}/>

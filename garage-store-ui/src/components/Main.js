@@ -4,8 +4,6 @@ import Axios from 'axios';
 import '../App.css';
 import '../Main.css';
 
-
-
 function Main(props) {
     const [stuffs, setStuffs] = useState([{name: "loading..."}]);
 

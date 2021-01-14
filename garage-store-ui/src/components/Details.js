@@ -49,7 +49,7 @@ function Details(props) {
                     <div className='detail-card-description'>Description: {description}</div>
                 </div>
                 <div className='detail-card-bottom'>
-                    <iframe className='detail-card-youtube-url' width="853" height="505" src={embedUrl} frameBorder="0"
+                    <iframe className='detail-card-youtube-url' width="642" height="379" src={embedUrl} frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen></iframe>
                 </div>
