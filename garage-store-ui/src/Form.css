@@ -12,12 +12,13 @@ body {
 }
 
 .form-container {
-    background-color: white;
+    padding-left: 80px;
+    background-color: lightgrey;
     border: solid black 2px;
     border-radius: 7px;
     width: 75%;
     padding-bottom: 50px;
-    opacity: 60%;
+    opacity: 80%;
 }
 
 .input-container {
@@ -51,6 +52,7 @@ textarea {
 .img-textarea {
     width: 600px;
     height: 100px;
+    background-color: white;
 }
 
 .url-textarea {
@@ -59,9 +61,12 @@ textarea {
 }
 
 .button {
-    margin: 35px;
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 230px;
     margin-top: 5px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-
+    background-color: dimgrey;
 }

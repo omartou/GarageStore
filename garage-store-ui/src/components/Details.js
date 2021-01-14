@@ -56,6 +56,16 @@ function Details(props) {
     return (
         <div className='details-style'>
             <h1>{name}</h1>
+            <div className='buttons-container'>
+                <Link className='btn-link' name={name} to={{pathname: `/update/${id}`}}>
+                    UPDATE
+                </Link>
+                {soldStatus ?
+                   ""  : <Link className='btn-button' value="SOLD" onClick={setSoldStatus}>
+                        SOLD
+                    </Link>
+                }
+            </div>
             <div className='detail-card'>
                 <div className='detail-card-top'>
                     <img src={image} alt="alternative text" width="200" height="150" className='detail-card-image'/>
@@ -71,13 +81,9 @@ function Details(props) {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen></iframe>
                 </div>
+
             </div>
-            <Link name={name} to={{pathname: `/update/${id}`}}>
-                UPDATE
-            </Link>
-            <button value="SOLD" onClick={setSoldStatus}>
-                SOLD
-            </button>
+
         </div>
     );
 }
