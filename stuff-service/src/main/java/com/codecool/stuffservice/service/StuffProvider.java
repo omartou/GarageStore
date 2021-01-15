@@ -62,7 +62,7 @@ public class StuffProvider {
 
         //Check properties of StuffDetailsResult and collect errors
         List<String> errorsOfStuffDetailsResult = new ArrayList<>();
-        if(stuffWithDetails.getStuffDetailsResult().getDescription() == null) {
+        if (stuffWithDetails.getStuffDetailsResult().getDescription() == null) {
             errorsOfStuffDetailsResult.add("Description should be provided");
         }
         if (stuffWithDetails.getStuffDetailsResult().getPurchaseYear() == null) {
@@ -92,6 +92,7 @@ public class StuffProvider {
         responseModel.put("StuffWithDetails", successMessages);
         return ResponseEntity.ok(responseModel);
     }
+
 
     public void setSoldStatusByStuffId(Long stuffId) {
         Optional<Stuff> optionalStuff = stuffRepository.findById(stuffId);

@@ -8,8 +8,11 @@
 		<version>2.3.7.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
+
 	<groupId>com.codecool</groupId>
 	<artifactId>stuff-service</artifactId>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>stuff-service</name>
 	<description>Demo project for Spring Boot</description>
