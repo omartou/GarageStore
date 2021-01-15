@@ -67,6 +67,33 @@ public class DBInitializer {
                         .build()
         );
 
+        stuffDetailsList.add(
+                StuffDetails.builder()
+                        .purchaseYear("2019")
+                        .description("Did you ever heard about the world's 1st real lightsaber? It is not a childplay! You can buy it now!")
+                        .youtubeVideoUrl("AymYhmayWz4")
+                        .stuffId(6L)
+                        .build()
+        );
+
+        stuffDetailsList.add(
+                StuffDetails.builder()
+                        .purchaseYear("2020")
+                        .description("Buy your smart watch and keep everthing in your hand - or ON your arm.")
+                        .youtubeVideoUrl("IkXFTFBmjC4")
+                        .stuffId(7L)
+                        .build()
+        );
+
+        stuffDetailsList.add(
+                StuffDetails.builder()
+                        .purchaseYear("2020")
+                        .description("Actually I don't know what is used for, but for further information just check the video.")
+                        .youtubeVideoUrl("_4W1sHGJw3A")
+                        .stuffId(8L)
+                        .build()
+        );
+
         stuffDetailsRepository.saveAll(stuffDetailsList);
         LOGGER.info("Initializing stuff details finished");
     }
