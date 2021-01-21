@@ -17,8 +17,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>api-gateway</module>
         <module>service-registry</module>
+        <module>api-gateway</module>
         <module>stuff-service</module>
         <module>stuff-details-service</module>
     </modules>
