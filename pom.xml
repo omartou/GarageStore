@@ -10,6 +10,10 @@
         <version>2.3.7.RELEASE</version>
     </parent>
 
+    <properties>
+        <java.version>15</java.version>
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+    </properties>
 
     <groupId>com.codecool</groupId>
     <artifactId>garage-store</artifactId>
@@ -18,9 +22,8 @@
 
     <modules>
         <module>service-registry</module>
-        <module>api-gateway</module>
         <module>stuff-service</module>
-        <module>stuff-details-service</module>
+
     </modules>
 
 </project>
