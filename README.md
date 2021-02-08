@@ -1,6 +1,6 @@
 # GarageStore
 
-This project is a Garage Store web application, created with Java Enterprise technologies. 
+This project is a Garage Store web application, created with Java Enterprise Technologies. 
 
 On the backend side we use Spring framework for the API endpoints. 
 
@@ -10,4 +10,4 @@ We use Microservice Architecture to separete the application into smaller, indep
 
 To register the microservices, we have Eureka Server.
 
-The gateway service is Zuul that provides dynamic routing and monitoring. 
+The gateway service is Zuul that provides dynamic routing and monitoring.
