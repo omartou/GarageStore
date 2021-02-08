@@ -2,7 +2,7 @@
 
 This project is a Garage Store web application, created with Java Enterprise technologies. 
 
-On the backend side we use Spring framework for the API endpoint. 
+On the backend side we use Spring framework for the API endpoints. 
 
 Our frontend was made with React framework (React hooks), written in JSX. Styling was made with CSS3. 
 
